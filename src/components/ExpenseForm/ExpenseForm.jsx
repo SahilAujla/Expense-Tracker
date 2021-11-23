@@ -24,7 +24,7 @@ const ExpenseForm = ({ onSaveExpenseData, stopEditing }) => {
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
 
@@ -40,15 +40,15 @@ const ExpenseForm = ({ onSaveExpenseData, stopEditing }) => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+                    <input required type="text" value={enteredTitle} onChange={titleChangeHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="number" value={enteredAmount} min="0.01" max="7000" step="0.01" onChange={amountChangeHandler} />
+                    <input required type="number" value={enteredAmount} min="0.1" max="100000" step="0.1" onChange={amountChangeHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" value={enteredDate} onChange={dateChangeHandler} min="2019-01-01" max="2025-12-31" />
+                    <input required type="date" value={enteredDate} onChange={dateChangeHandler} min="2021-01-01" max="2024-12-31" />
                 </div>
             </div>
             <div className="new-expense__actions">
